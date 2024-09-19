@@ -54,7 +54,21 @@ static void MX_GPIO_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
+void clearAllClock()
+{
+	HAL_GPIO_WritePin(GPIOA, led0_Pin, GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(GPIOA, led1_Pin, GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(GPIOA, led2_Pin, GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(GPIOA, led3_Pin, GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(GPIOA, led4_Pin, GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(GPIOA, led5_Pin, GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(GPIOA, led6_Pin, GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(GPIOA, led7_Pin, GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(GPIOA, led8_Pin, GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(GPIOA, led9_Pin, GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(GPIOA, led10_Pin, GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(GPIOA, led11_Pin, GPIO_PIN_RESET);
+}
 /* USER CODE END 0 */
 
 /**
@@ -148,14 +162,25 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOA_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, LED_RED_Pin|LED_YELLOW_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOA, led0_Pin|led1_Pin|led2_Pin|led3_Pin
+                          |led4_Pin|led5_Pin|led6_Pin|led7_Pin
+                          |led8_Pin|led10_Pin|led11_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pins : LED_RED_Pin LED_YELLOW_Pin */
-  GPIO_InitStruct.Pin = LED_RED_Pin|LED_YELLOW_Pin;
+  /*Configure GPIO pins : led0_Pin led1_Pin led2_Pin led3_Pin
+                           led4_Pin led5_Pin led6_Pin led7_Pin
+                           led8_Pin led10_Pin led11_Pin */
+  GPIO_InitStruct.Pin = led0_Pin|led1_Pin|led2_Pin|led3_Pin
+                          |led4_Pin|led5_Pin|led6_Pin|led7_Pin
+                          |led8_Pin|led10_Pin|led11_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : led9_Pin */
+  GPIO_InitStruct.Pin = led9_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
+  HAL_GPIO_Init(led9_GPIO_Port, &GPIO_InitStruct);
 
 }
 
