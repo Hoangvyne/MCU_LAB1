@@ -92,22 +92,22 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   //initial for group1
-    int Yellow_Count_Group1 = 3;// yellow-led turn on 2 seconds
-    int Red_Count_Group1 = 6;// red-led turn on 5 seconds
-    int Green_Count_Group1 = 4;// green-led turn on 3 seconds
+    int Yellow_Count_Group1 = 3;
+    int Red_Count_Group1 = 6;
+    int Green_Count_Group1 = 4;
 
-    int Yellow_Status_Group1 = 0;//yellow-led off
-    int Red_Status_Group1 = 0;//red-led off
-    int Green_Status_Group1 = 1;// green-led is turn on
+    int Yellow_Status_Group1 = 0;
+    int Red_Status_Group1 = 0;
+    int Green_Status_Group1 = 1;
 
     //initial for group2
-    int Yellow_Count_Group2 = 3;;// yellow-led turn on 2 seconds
-    int Red_Count_Group2 = 6;// red-led turn on 5 seconds
-    int Green_Count_Group2 = 4;// green-led turn on 3 seconds
+    int Yellow_Count_Group2 = 3;
+    int Red_Count_Group2 = 6;
+    int Green_Count_Group2 = 4;
 
-    int Yellow_Status_Group2 = 0;//yellow-led off
-    int Red_Status_Group2 = 1;// red-led is turn on
-    int Green_Status_Group2 = 0;//green-led off
+    int Yellow_Status_Group2 = 0;
+    int Red_Status_Group2 = 1;
+    int Green_Status_Group2 = 0;
   while (1)
   {
 
@@ -116,10 +116,7 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  //-------begin group1 ( group horizontal)--------
-	  	  // in group1, green-led bright first
 
-	  	  //green-led will turn on in 3 seconds untill green-status=0
 	  	  if(Green_Status_Group1 == 1)
 	  	  {
 	  		  Green_Count_Group1 --;
@@ -127,14 +124,12 @@ int main(void)
 
 	  		  if(Green_Count_Group1 == 0)
 	  		  {
-	  			 Green_Status_Group1 = 0;// green-led turn off
-	  			 Green_Count_Group1 = 3;// update time of green-led
+	  			 Green_Status_Group1 = 0;
+	  			 Green_Count_Group1 = 3;
 	  			 HAL_GPIO_WritePin(GREENA_GPIO_Port, GREENA_Pin, GPIO_PIN_RESET);
-	  			 Yellow_Status_Group1 = 1;//yellow-led turn on
+	  			 Yellow_Status_Group1 = 1;
 	  		  }
 	  	  }
-
-	  	  // yellow-led will turn on in 2 seconds untill yellow-status=0
 	  	  if(Yellow_Status_Group1 == 1)
 	  	  {
 	  		  Yellow_Count_Group1 --;
@@ -142,36 +137,28 @@ int main(void)
 
 	  		  if(Yellow_Count_Group1 == 0)
 	  		  {
-	  			  Yellow_Status_Group1 = 0;// yellow-led turn off
-	  			  Yellow_Count_Group1 = 3;// update time of yellow-led
+	  			  Yellow_Status_Group1 = 0;
+	  			  Yellow_Count_Group1 = 3;
 	  			  HAL_GPIO_WritePin(YELLOWA_GPIO_Port, YELLOWA_Pin, GPIO_PIN_RESET);
-	  			  Red_Status_Group1 = 1;// red-led turn on
+	  			  Red_Status_Group1 = 1;
 	  		  }
 	  	  }
 
-	  	  // red-led will turn on in 5 seconds untill red-status=0
-	  	  if(Red_Status_Group1 == 1)
+	  	 if(Red_Status_Group1 == 1)
 	  	  {
 	  		  Red_Count_Group1 --;
 	  		  HAL_GPIO_WritePin(REDA_GPIO_Port, REDA_Pin, GPIO_PIN_SET);
 
 	  		  if(Red_Count_Group1 == 0)
 	  		  {
-	  			  Red_Status_Group1 = 0;// red-led turn off
-	  			  Red_Count_Group1 = 6;// update time of red-led
+	  			  Red_Status_Group1 = 0;
+	  			  Red_Count_Group1 = 6;
 	  			  HAL_GPIO_WritePin(REDA_GPIO_Port, REDA_Pin, GPIO_PIN_RESET);
 
 	  			  HAL_GPIO_WritePin(GREENA_GPIO_Port, GREENA_Pin, GPIO_PIN_SET);
-	  			  Green_Status_Group1 = 1;// green-led turn on
+	  			  Green_Status_Group1 = 1;
 	  		  }
 	  	  }
-	  	  //---------end group1 ( group horizontal)----------
-
-
-	  	  //-------begin group2 ( group vertical)-----------
-	  	  // in group2, red-led bright first
-
-	  	  // red-led will turn on in 5 seconds untill red-status=0
 	  	  if(Red_Status_Group2 == 1)
 	  	  {
 	  		  Red_Count_Group2 --;
@@ -179,47 +166,43 @@ int main(void)
 
 	  		  if(Red_Count_Group2 == 0)
 	  		  {
-	  			 Red_Status_Group2 = 0;// red-led turn off
-	  			 Red_Count_Group2 = 5;// update time of red-led
+	  			 Red_Status_Group2 = 0;
+	  			 Red_Count_Group2 = 5;
 	  			 HAL_GPIO_WritePin(REDB_GPIO_Port, REDB_Pin, GPIO_PIN_RESET);
-	  			 Green_Status_Group2 = 1;// green-led turn on
+	  			 Green_Status_Group2 = 1;
 	  		  }
 	  	  }
 
-	  	  //green-led will turn on in 3 seconds untill green-status=0
-	  	  if(Green_Status_Group2 == 1)
+	  	 if(Green_Status_Group2 == 1)
 	  	  {
 	  		  Green_Count_Group2 --;
 	  		  HAL_GPIO_WritePin(GREENB_GPIO_Port, GREENB_Pin, GPIO_PIN_SET);
 
 	  		  if(Green_Count_Group2 == 0)
 	  		  {
-	  			 Green_Status_Group2 = 0;// green-led turn off
-	  			 Green_Count_Group2 = 4;// update time of green-led
+	  			 Green_Status_Group2 = 0;
+	  			 Green_Count_Group2 = 4;
 	  			 HAL_GPIO_WritePin(GREENB_GPIO_Port, GREENB_Pin, GPIO_PIN_RESET);
-	  			 Yellow_Status_Group2 = 1;//yellow-led turn on
+	  			 Yellow_Status_Group2 = 1;
 	  		  }
 	  	  }
-
-	  	  //yellow-led will turn on in 3 seconds untill yellow-status=0
-	  	  if(Yellow_Status_Group2 == 1)
+	  	 if(Yellow_Status_Group2 == 1)
 	  	  {
 	  		  Yellow_Count_Group2 --;
 	  		  HAL_GPIO_WritePin(YELLOWB_GPIO_Port, YELLOWB_Pin, GPIO_PIN_SET);
 
 	  		  if(Yellow_Count_Group2 == 0)
 	  		  {
-	  			  Yellow_Status_Group2 = 0;// yellow-led turn off
-	  			  Yellow_Count_Group2 = 3;// update time of yellow-led
+	  			  Yellow_Status_Group2 = 0;
+	  			  Yellow_Count_Group2 = 3;
 	  			  HAL_GPIO_WritePin(YELLOWB_GPIO_Port, YELLOWB_Pin, GPIO_PIN_RESET);
 
 	  			  HAL_GPIO_WritePin(REDB_GPIO_Port, REDB_Pin, GPIO_PIN_SET);
-	  			  Red_Status_Group2 = 1;// red-led turn on
+	  			  Red_Status_Group2 = 1;
 	  		  }
 	  	  }
-	  	  //---------end group2 ( group vertical)-------------
 
-	  	  HAL_Delay(1000);
+	  	 HAL_Delay(1000);
 
 
   }
