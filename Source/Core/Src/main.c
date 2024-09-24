@@ -151,67 +151,46 @@ int main(void)
     /* USER CODE BEGIN 3 */
 	  if(count_second == 60)
 	  	  {
-
 	  		  if((count_second/5 - 1) != (count_minute/5) && (count_second/5 - 1) != count_hour)
 	  		  {
-
 	  			  clearNumberOnClock(count_second/5 - 1);
 	  		  }
 	  		  count_minute ++;
 	  		  count_second = 0;
 	  	  }
-
-
 	  	  if((count_second/5 - 1) != (count_minute/5) && (count_second/5 - 1) != count_hour)
 	  	  {
 	  		  clearNumberOnClock(count_second/5 - 1);
 	  	  }
-
 	  	  setNumberOnClock(count_second/5);
 	  	  count_second ++;
-
-
 	  	  if(count_minute == 60)
 	  	  {
-
 	  		  if((count_minute/5 -1) != (count_second/5) && (count_minute/5 -1) != count_hour)
 	  		  {
-
 	  			  clearNumberOnClock(count_minute/5 -1);
 	  		  }
 	  		  count_hour ++;
 	  		  count_minute = 0;
 	  	  }
-
-
 	  	  if((count_minute/5 -1) != (count_second/5) && (count_minute/5 -1) != count_hour)
 	  	  {
-
 	  		  clearNumberOnClock(count_minute/5 -1);
 	  	  }
-
 	  	  setNumberOnClock(count_minute/5);
-
-
 	  	  if(count_hour == 12)
 	  	  {
-
 	  		  if((count_hour -1) != (count_minute/5) && (count_hour -1) != (count_second/5))
 	  		  {
-
 	  			  clearNumberOnClock(count_hour -1);
 	  		  }
 	  		  count_hour = 0;
 	  	  }
-
 	  	  if((count_hour -1) != (count_minute/5) && (count_hour -1) != (count_second/5))
 	  	  {
-
 	  		  clearNumberOnClock(count_hour -1);
 	  	  }
-
 	  	  setNumberOnClock(count_hour);
-
 	  	  HAL_Delay(50);
   }
   /* USER CODE END 3 */
