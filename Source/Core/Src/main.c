@@ -348,7 +348,7 @@ int main(void)
 	 			 Green_Status_Group1 = 0;
 	 			 Green_Count_Group1 = 4;
 	 			 HAL_GPIO_WritePin(GREENA_GPIO_Port,GREENA_Pin,GPIO_PIN_RESET);
-	 			 Yellow_Status_Group1 = 1;//yellow-led turn on
+	 			 Yellow_Status_Group1 = 1;
 	 		  }
 	 		  Green_Count_Group1 --;
 
